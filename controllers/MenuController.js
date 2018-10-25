@@ -9,7 +9,8 @@ module.exports = class MenuController {
         message: "Please choose from an option below: ",
         choices: [
           "Add new contact",
-          "Exit"
+          "Exit",
+          "Date and Time"
         ]
       }
     ];
@@ -25,6 +26,10 @@ module.exports = class MenuController {
         break;
       case "Exit":
         this.exit();
+        break;
+      case "Date and Time":
+        this.getDate();
+        break;
       default:
         console.log("Invalid input");
         this.main();
@@ -48,6 +53,14 @@ module.exports = class MenuController {
   exit(){
     console.log("Thanks for using AddressBloc!");
     process.exit();
+  }
+
+
+  getDate(){
+    this.clear();
+    var date = Date();
+    console.log(date);
+    this.main();
   }
 
 
