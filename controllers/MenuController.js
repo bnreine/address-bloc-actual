@@ -1,6 +1,8 @@
 const inquirer = require('inquirer');
 const ContactController = require("./ContactController");
 
+debugger;
+
 module.exports = class MenuController {
   constructor(){
     this.mainMenuQuestions = [
