@@ -1,6 +1,8 @@
 const inquirer = require('inquirer');
 const ContactController = require("./ContactController");
 
+debugger;
+
 module.exports = class MenuController {
   constructor(){
     this.mainMenuQuestions = [
@@ -41,9 +43,10 @@ module.exports = class MenuController {
   }
 
   addContact(){
+
     this.clear();
     inquirer.prompt(this.book.addContactQuestions).then((answers) => {
-      this.book.addContact(answers.name, answers.phone).then((contact) => {
+      this.book.addContact(answers.name, answers.phone, answers.email).then((contact) => {
         console.log("Contact added successfully!");
         this.main();
       }).catch((err) => {
@@ -51,6 +54,8 @@ module.exports = class MenuController {
         this.main();
       });
     });
+
+
   }
 
   exit(){

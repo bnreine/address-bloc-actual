@@ -19,3 +19,8 @@ Instead of relying on process.env.NODE_ENV to populate an env variable and using
 **db/models/index.js**
 `var config = require(__dirname + '/../config/config.json')["test"];`
 ******************************************
+
+
+
+//Running migration files on test environment
+sequelize db:migrate --env test
