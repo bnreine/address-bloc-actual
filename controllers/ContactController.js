@@ -40,6 +40,27 @@ module.exports = class ContactController {
         }
       }
     ];
+
+    this.showContactQuestions = [
+      {
+        type: "list",
+        name: "selected",
+        message: "Please choose from an option below: ",
+        choices: [
+          "Delete contact",
+          "Main menu"
+        ]
+      }
+    ];
+
+    this.deleteConfirmQuestions = [
+      {
+        type: "confirm",
+        name: "confirmation",
+        message: "are you sure you want to delete this contact?"
+      }
+    ];
+
   }
 
 
@@ -95,6 +116,16 @@ module.exports = class ContactController {
       where: {name}
     });
   }
+
+
+  delete(id){
+    return Contact.destroy({
+      where: {id}
+    })
+  }
+
+
+
 
 
 }
