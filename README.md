@@ -13,23 +13,19 @@ This is an address book command line application built using Express, Node, Sequ
 
 
 ******************Internal Notes********************************************
+
 //Need to type "set" instead of "export" in scripts/tests in package.json file for windows
 
 //To start database, type the following in the root directory of the project folder
 pg_ctl -D C:/PostgreSQL/data/pg10 start
 
-
 //port 5432 for database listening
-
 
 //Needed to change db/models/index.js file (apparently there's a bug in sequelize for
 windows user like myself):
 
-
-
 //db/models/index.js
 //var config = require(__dirname + '/../config/config.json')["test"]
-
 
 //Running migration files on test environment
 sequelize db:migrate --env test
