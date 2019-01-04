@@ -1,7 +1,6 @@
 const inquirer = require('inquirer');
 const ContactController = require("./ContactController");
 
-debugger;
 
 module.exports = class MenuController {
   constructor(){
@@ -23,7 +22,7 @@ module.exports = class MenuController {
   }
 
   main(){
-    console.log(`Welcome to AddressBloc!`);
+    console.log(`Welcome to Address Book!`);
     inquirer.prompt(this.mainMenuQuestions).then((response) => {
     switch(response.mainMenuChoice){
       case "Add new contact":
@@ -71,7 +70,7 @@ module.exports = class MenuController {
   }
 
   exit(){
-    console.log("Thanks for using AddressBloc!");
+    console.log("Thanks for using Address Book!");
     process.exit();
   }
 
@@ -134,23 +133,23 @@ module.exports = class MenuController {
   showContact(contact){
     this._printContact(contact);
     inquirer.prompt(this.book.showContactQuestions)
-.then((answer) => {
-  switch(answer.selected){
-    case "Delete contact":
-      this.delete(contact);
-      break;
-    case "Main menu":
-      this.main();
-      break;
-    default:
-      console.log("Something went wrong.");
+    .then((answer) => {
+      switch(answer.selected){
+        case "Delete contact":
+          this.delete(contact);
+          break;
+        case "Main menu":
+          this.main();
+          break;
+        default:
+          console.log("Something went wrong.");
+          this.showContact(contact);
+      }
+    })
+    .catch((err) => {
+      console.log(err);
       this.showContact(contact);
-  }
-})
-.catch((err) => {
-  console.log(err);
-  this.showContact(contact);
-});
+    });
   }
 
 
@@ -163,6 +162,7 @@ module.exports = class MenuController {
       ---------------`
     );
   }
+
 
   delete(contact){
     inquirer.prompt(this.book.deleteConfirmQuestions)
@@ -181,10 +181,4 @@ module.exports = class MenuController {
       this.main();
     });
   }
-
-
-
-
-
-
 }
