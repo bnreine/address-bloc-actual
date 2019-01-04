@@ -6,18 +6,18 @@ describe("ContactController", () => {
   beforeEach((done) => {
      this.book = new ContactController();
 
-  sequelize.sync({force: true}).then((res) => {
-     done();
-   })
-   .catch((err) => {
-     done();
+     sequelize.sync({force: true}).then((res) => {
+       done();
+     })
+     .catch((err) => {
+       done();
+     });
    });
-  });
 
 
-  it("should be defined", () => {
-    expect(ContactController).toBeDefined();
-  })
+   it("should be defined", () => {
+     expect(ContactController).toBeDefined();
+   })
 
 
 
@@ -186,7 +186,7 @@ describe("ContactController", () => {
        });
 
 
-///binary here
+
 describe("#binarySearch()", () => {
 
   function sort(contacts){
@@ -297,10 +297,6 @@ describe("#binarySearch()", () => {
        });
 
      });
-
-
-
-
 
 
 })
